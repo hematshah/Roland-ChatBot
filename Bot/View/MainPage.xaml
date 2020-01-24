@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Bot.ViewModel"
+             x:Class="Bot.View.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:MainVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="16"
+              BindingContext="{StaticResource vm}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="1">
+                <Entry HorizontalOptions="FillAndExpand"
+                       Text="{Binding Messages, Mode=TwoWay}"/>
+                <Button Text="Send"
+                        Command="{Binding SendCommand}"
+                        TextColor="White"
+                        WidthRequest="75"
+                        BackgroundColor="#0EB1D2"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+   
+    
+    
+    <!--<WebView Source ="https://webchat.botframework.com/embed/rolandio-bot?s=gaCIRrdSsIw.HCZP1dJfnWOvNHO4KkexuDy9FY2yQivDYctMAd-KpaY"/>-->
+
+</ContentPage>
